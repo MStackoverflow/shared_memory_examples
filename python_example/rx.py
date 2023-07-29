@@ -11,8 +11,8 @@ import mmap
 
 # Mrs. Premise has already created the semaphore and shared memory.
 # I just need to get handles to them.
-memory = posix_ipc.SharedMemory("TESTSMH")
-semaphore = posix_ipc.Semaphore("TESTSEMA")
+memory = posix_ipc.SharedMemory("test_shared_memory")
+semaphore = posix_ipc.Semaphore("test_semaphore")
 
 BUF = mmap.mmap(memory.fd, memory.size)
 c = np.ndarray((6,), dtype=np.int32, buffer=BUF)
@@ -32,9 +32,10 @@ t.start()
 
 try:
     while 1:
-        #semaphore.acquire()
-        #c[1]=c[1]+1
-        #semaphore.release()
+        semaphore.acquire()
+        c[1]=c[1]+1
+        #sleep(1) # Remove comments to verify that the semaphore is working properly
+        semaphore.release()
         counter=counter+1
         #sleep(0)
 
