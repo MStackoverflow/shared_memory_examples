@@ -27,7 +27,7 @@ t.start()
 memory = None
 try:
     memory = posix_ipc.SharedMemory("test_shared_memory", posix_ipc.O_CREX,
-                                    size=1024)
+                                    size=2048)
 except:
     memory = posix_ipc.SharedMemory("test_shared_memory")
 try:
@@ -36,7 +36,7 @@ except:
     semaphore = posix_ipc.Semaphore("test_semaphore")
 
 # Create an array
-a = np.array([1, 1, 1, 1, 1, 1])
+a = np.array([1, 2, 3, 4, 5, 6])
 
 # Create a buffer that is linked to the shared memory
 BUF = mmap.mmap(memory.fd, memory.size)

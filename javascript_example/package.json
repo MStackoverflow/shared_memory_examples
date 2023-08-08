@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "mem-shm": "^0.2.6",
+    "shm-typed-array": "^0.1.0",
+    "shmmap": "^1.0.0"
+  }
+}

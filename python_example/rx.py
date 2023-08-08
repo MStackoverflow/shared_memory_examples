@@ -6,7 +6,6 @@ from time import sleep
 # 3rd party modules
 import posix_ipc
 import numpy as np
-import mmap
 
 
 # Mrs. Premise has already created the semaphore and shared memory.
